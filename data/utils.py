@@ -1,7 +1,11 @@
 import torchvision.transforms as transforms
 from PIL import Image
 import torch
-from config.config import cfg
+import sys
+print(sys.path)
+sys.path.append('./config/')
+from config import cfg
+# from config.config import cfg
 
 def get_transform(train=True):
     transform_list = []

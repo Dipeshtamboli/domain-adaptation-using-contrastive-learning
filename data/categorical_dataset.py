@@ -1,5 +1,6 @@
 import os
-from .image_folder import make_dataset_with_labels, make_dataset_classwise
+from image_folder import make_dataset_with_labels, make_dataset_classwise
+# from .image_folder import make_dataset_with_labels, make_dataset_classwise
 from PIL import Image
 from torch.utils.data import Dataset
 import random

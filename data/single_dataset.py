@@ -1,5 +1,6 @@
 import os
-from .image_folder import make_dataset_with_labels, make_dataset
+from image_folder import make_dataset_with_labels, make_dataset
+# from .image_folder import make_dataset_with_labels, make_dataset
 from PIL import Image
 from torch.utils.data import Dataset
 

@@ -1,5 +1,6 @@
 import torch.utils.data
-from .categorical_dataset import CategoricalSTDataset
+from categorical_dataset import CategoricalSTDataset
+# from .categorical_dataset import CategoricalSTDataset
 from math import ceil as ceil
 
 def collate_fn(data):

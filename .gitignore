@@ -3,7 +3,7 @@
 #experiments/ckpt/*
 
 #experiments/ckpt/office31_a2d/*
-*pyc
+*.pyc
 *.jpg
 *.png
 *pth

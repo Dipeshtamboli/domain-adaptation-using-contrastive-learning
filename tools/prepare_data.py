@@ -1,8 +1,19 @@
 import os
-import data.utils as data_utils
-from data.custom_dataset_dataloader import CustomDatasetDataLoader
-from data.class_aware_dataset_dataloader import ClassAwareDataLoader
-from config.config import cfg
+import sys
+# export PYTHONPATH="`pwd`:${PYTHONPATH}"
+# print(sys.path)
+# sys.path.append('../data/')
+sys.path.append('./data/')
+sys.path.append('./config/')
+# print(sys.path)
+from config import cfg
+# from config.config import cfg
+import utils as data_utils
+# import data.utils as data_utils
+from custom_dataset_dataloader import CustomDatasetDataLoader
+# from data.custom_dataset_dataloader import CustomDatasetDataLoader
+from class_aware_dataset_dataloader import ClassAwareDataLoader
+# from data.class_aware_dataset_dataloader import ClassAwareDataLoader
 
 def prepare_data_CAN():
     dataloaders = {}
@@ -184,3 +195,6 @@ def prepare_data_SingleDomainTarget():
                     classnames=classes)
 
     return dataloaders
+if __name__ == '__main__':
+    dataloaders = prepare_data_CAN()
+

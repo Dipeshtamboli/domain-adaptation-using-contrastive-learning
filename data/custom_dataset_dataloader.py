@@ -1,5 +1,12 @@
 import torch.utils.data
-from . import single_dataset
+import sys
+# export PYTHONPATH="`pwd`:${PYTHONPATH}"
+# print(sys.path)
+# sys.path.append('../data/')
+sys.path.append('./data/')
+
+import single_dataset
+# from . import single_dataset
 
 class CustomDatasetDataLoader(object):
     def name(self):
