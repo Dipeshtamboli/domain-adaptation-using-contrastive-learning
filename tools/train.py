@@ -1,3 +1,6 @@
+import warnings
+warnings.warn('my warning')
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 import torch
 import argparse
 import os
