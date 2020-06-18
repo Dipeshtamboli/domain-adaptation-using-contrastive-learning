@@ -1,7 +1,12 @@
-# *pyc
-# *.jpg
-# *.png
-# *pth
-# *ckpt
-# *.zip
-# *dataset
+*.resume
+*.weights
+#experiments/ckpt/*
+
+#experiments/ckpt/office31_a2d/*
+*pyc
+*.jpg
+*.png
+*pth
+*ckpt
+*.zip
+*dataset
