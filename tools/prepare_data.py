@@ -201,4 +201,8 @@ if __name__ == '__main__':
     cfg_from_file(cfg_file)
     dataloaders = prepare_data_CAN()
     pdb.set_trace()
-    
+    # for dataloader in iter(dataloaders):
+    for sample in iter(dataloaders['test']):
+        pdb.set_trace()
+
+
