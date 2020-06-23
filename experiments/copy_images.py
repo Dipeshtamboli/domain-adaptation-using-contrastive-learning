@@ -14,8 +14,8 @@ def copy_img(src,dest):
     dest = shutil.copy(src, dest) 
 
 
-domains = {'source':'dslr',
-           'target':'amazon'}
+domains = {'source':'amazon',
+           'target':'dslr'}
 num_imgs = {'source':10,
            'target':4}
 # pdb.set_trace()
