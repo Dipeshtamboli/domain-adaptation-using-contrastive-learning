@@ -2,33 +2,56 @@
 Taking 20 images from the train and 5 images from the Test for each class
 Here, we are doing mixup of AMAZON and DSLR
 '''
+import shutil
 import cv2
 import pdb
 import os 
 import glob
 
+def copy_img(src,dest):
+    if not os.path.exists(os.path.join(*(dest.split('/')[:-1]))):
+        os.makedirs(os.path.join(*(dest.split('/')[:-1])))
+    dest = shutil.copy(src, dest) 
 
 
-all_images = glob.glob("./Office-31/dslr/*/*")
+domains = {'source':'dslr',
+           'target':'amazon'}
+num_imgs = {'source':10,
+           'target':4}
 # pdb.set_trace()
 
 """
-Copying 5 images of each class of DSLR to the mixup data creation
+Copying 10 images of each class of DSLR(source) to the mixup data creation
+And 4 images from AMAZON(target) to the mixup data creation
+total mizup images = 31*10 x 31*4 = 38440
 """
-path5_dict = {}
-path5_dict["count"] = 0
-for img_path in all_images:
-	class_name = img_path.split('/')[-2]
-	img_name = img_path.split('/')[-1]
-	if class_name in path5_dict.keys():
-		if len(path5_dict[class_name])<5:
-			path5_dict[class_name].append(img_path)
-			path5_dict["count"] += 1
-	else:
-		path5_dict[class_name] = [img_path]
-		path5_dict["count"] += 1
-path5_dict["count"] = str(path5_dict["count"])
-pdb.set_trace()
-for keys in path5_dict.keys():
-	print(f"{keys}: {len(path5_dict[keys])}")
-pdb.set_trace()
+path_dict = {}
+save_folder = "small_Office-31"
+for domain in domains.keys():
+    all_images = glob.glob(f"./dataset/Office-31/{domains[domain]}/*/*")
+    temp_path_dict = {}
+    # temp_path_dict["count"] = 0
+    for img_path in all_images:
+        class_name = img_path.split('/')[-2]
+        img_name = img_path.split('/')[-1]
+        if class_name in temp_path_dict.keys():
+            if len(temp_path_dict[class_name])<=num_imgs[domain]:
+                temp_path_dict[class_name].append(img_path)
+                # print(img_path)
+                # pdb.set_trace()
+
+                destination =img_path.split('/')
+                destination[-4] = save_folder
+                destination = os.path.join(*destination)
+                copy_img(img_path, destination)
+                # temp_path_dict["count"] += 1
+        else:
+            temp_path_dict[class_name] = [img_path]
+    path_dict[domains[domain]] = temp_path_dict
+        # temp_path_dict["count"] += 1
+# path_dict["count"] = str(path_dict["count"])
+# for keys in path_dict.keys():
+#   print(f"{keys}: {len(path_dict[keys])}")
+#   for path in path_dict[keys]:
+
+# pdb.set_trace()
