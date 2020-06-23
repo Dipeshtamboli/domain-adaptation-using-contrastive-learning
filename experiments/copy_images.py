@@ -1,5 +1,5 @@
 '''
-Taking 20 images from the train and 5 images from the Test for each class
+Taking 10 images from the train and 4 images from the Test for each class
 Here, we are doing mixup of AMAZON and DSLR
 '''
 import shutil
