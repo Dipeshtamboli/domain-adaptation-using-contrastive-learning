@@ -13,8 +13,8 @@ def save_img(filename, img ):
     if not os.path.exists(os.path.join(*(dest.split('/')[:-1]))):
         os.makedirs(os.path.join(*(dest.split('/')[:-1])))
     cv2.imwrite(filename, img) 
-domains_dict = {'source':'dslr',
-           'target':'amazon'}
+domains_dict = {'source':'amazon',
+           'target':'dslr'}
 load_folder = "small_Office-31"
 save_folder = "mixup_Office-31"
 
