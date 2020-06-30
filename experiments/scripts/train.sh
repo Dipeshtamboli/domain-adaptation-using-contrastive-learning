@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# ./experiments/scripts/train.sh ./experiments/config/Office-31/CAN/office31_train_amazon2dslr_cfg.yaml 0 CAN office31_a2d
 export PYTHONPATH="`pwd`:${PYTHONPATH}"
 if [ $# != 4 ]
 then 
