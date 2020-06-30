@@ -7,10 +7,10 @@ import sys
 sys.path.append('./data/')
 sys.path.append('./config/')
 # print(sys.path)
-from config import cfg,cfg_from_file
-# from config.config import cfg
-import utils as data_utils
-# import data.utils as data_utils
+# from config import cfg,cfg_from_file
+from config.config import cfg
+# import utils as data_utils
+import data.utils as data_utils
 from custom_dataset_dataloader import CustomDatasetDataLoader
 # from data.custom_dataset_dataloader import CustomDatasetDataLoader
 from class_aware_dataset_dataloader import ClassAwareDataLoader

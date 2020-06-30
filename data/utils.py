@@ -4,8 +4,8 @@ import torch
 import sys
 print(sys.path)
 sys.path.append('./config/')
-from config import cfg
-# from config.config import cfg
+# from config import cfg
+from config.config import cfg
 
 def get_transform(train=True):
     transform_list = []
