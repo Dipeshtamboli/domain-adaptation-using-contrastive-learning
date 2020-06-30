@@ -1,6 +1,6 @@
 DATASET:
   NUM_CLASSES: 31
-  DATAROOT: './experiments/dataset/small_Office-31'
+  DATAROOT: './experiments/dataset/mixup_Office-31'
   SOURCE_NAME: 'amazon'
   TARGET_NAME: 'dslr'
 
