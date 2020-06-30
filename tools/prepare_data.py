@@ -1,8 +1,20 @@
+import pdb
 import os
-import data.utils as data_utils
-from data.custom_dataset_dataloader import CustomDatasetDataLoader
-from data.class_aware_dataset_dataloader import ClassAwareDataLoader
-from config.config import cfg
+import sys
+# export PYTHONPATH="`pwd`:${PYTHONPATH}"
+# print(sys.path)
+# sys.path.append('../data/')
+sys.path.append('./data/')
+sys.path.append('./config/')
+# print(sys.path)
+from config import cfg,cfg_from_file
+# from config.config import cfg
+import utils as data_utils
+# import data.utils as data_utils
+from custom_dataset_dataloader import CustomDatasetDataLoader
+# from data.custom_dataset_dataloader import CustomDatasetDataLoader
+from class_aware_dataset_dataloader import ClassAwareDataLoader
+# from data.class_aware_dataset_dataloader import ClassAwareDataLoader
 
 def prepare_data_CAN():
     dataloaders = {}
@@ -13,7 +25,7 @@ def prepare_data_CAN():
     target = cfg.DATASET.TARGET_NAME
     dataroot_S = os.path.join(cfg.DATASET.DATAROOT, source)
     dataroot_T = os.path.join(cfg.DATASET.DATAROOT, target)
-
+    # pdb.set_trace()
     with open(os.path.join(cfg.DATASET.DATAROOT, 'category.txt'), 'r') as f:
         classes = f.readlines()
         classes = [c.strip() for c in classes]
@@ -184,3 +196,13 @@ def prepare_data_SingleDomainTarget():
                     classnames=classes)
 
     return dataloaders
+if __name__ == '__main__':
+    cfg_file = "/home/dipesh/Desktop/Contrastive-Adaptation-Network-for-Unsupervised-Domain-Adaptation/experiments/config/Office-31/CAN/office31_train_amazon2dslr_cfg.yaml"
+    cfg_from_file(cfg_file)
+    dataloaders = prepare_data_CAN()
+    pdb.set_trace()
+    # for dataloader in iter(dataloaders):
+    for sample in iter(dataloaders['test']):
+        pdb.set_trace()
+
+
